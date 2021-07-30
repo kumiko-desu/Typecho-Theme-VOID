@@ -1,9 +1,8 @@
 name: Build
 
 on:
-  push:
-    branches:
-      - master
+  watch:
+    types: started
 
 jobs:
   build:
@@ -21,11 +20,8 @@ jobs:
     - name: Build
       run: |
         make
-    - name: Deploy Build
-      uses: docker://peaceiris/gh-pages:v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PUBLISH_BRANCH: nightly
-        PUBLISH_DIR: ./build
+    - name : Upload artifact
+      uses: actions/upload-artifact@master
       with:
-        emptyCommits: false
+        name: VOID
+        path: ./build
