@@ -82,7 +82,7 @@ Class Contents
     {
         $text = empty($last)?$data:$last;
         if ($widget instanceof Widget_Archive) {
-            $text = self::parseRuby($text);
+            // $text = self::parseRuby($text);
             $text = self::parseFancyBox($text, $widget->parameter->__get('type') == 'feed');
             $text = self::parseBiaoQing($text);
             $text = self::parsePhotoSet($text);
@@ -99,7 +99,7 @@ Class Contents
     {
         $text = empty($last)?$data:$last;
         if ($widget instanceof Widget_Archive) {
-            $text = self::parseRuby($text);
+            // $text = self::parseRuby($text);
             $text = self::parseBiaoQing($text);
             $text = self::parseNotice($text);
             // 去除照片集标记
